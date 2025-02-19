@@ -20,29 +20,31 @@ const app = new Hono()
       name: accounts.name
     })
     .from(accounts)
-    .where(eq(accounts.id, auth.userId))
+    .where(eq(accounts.userId, auth.userId))
     
     return c.json({ data })
   })
   .post(
     "/",
+    clerkMiddleware(),
     zValidator("json", insertAccountSchema.pick({
       name:true,
     })),
-    clerkMiddleware(),
     async (c) => {
+      console.log("hi");
+      
       const auth = getAuth(c)
       const values = c.req.valid("json")
 
       if (!auth?.userId){
         return c.json({error: "Unauthorized"}, 401)
       }
-
-      const [data] = await db.insert(accounts).values({
+      
+      const data = await db.insert(accounts).values({
         id: uuidv4(),
         userId: auth.userId,
         ...values,
-      }).returning();
+      });
       
       return c.json({ data })
     }
