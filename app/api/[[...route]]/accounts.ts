@@ -30,9 +30,7 @@ const app = new Hono()
     zValidator("json", insertAccountSchema.pick({
       name:true,
     })),
-    async (c) => {
-      console.log("hi");
-      
+    async (c) => {      
       const auth = getAuth(c)
       const values = c.req.valid("json")
 
