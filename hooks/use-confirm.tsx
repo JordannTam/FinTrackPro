@@ -7,7 +7,7 @@ export const useConfirm = (
   message: string,
 ): [() => JSX.Element, () => Promise<unknown>] => {
   const [promise, setPromise] = useState<{resolve: (value: boolean) => void} | null>(null)
-  const confirm = () => new Promise((resolve, reject) => {
+  const confirm = () => new Promise((resolve) => {
     setPromise({resolve})
   })
 

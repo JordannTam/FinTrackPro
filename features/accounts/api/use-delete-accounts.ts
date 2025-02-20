@@ -1,30 +1,30 @@
 import { client } from "@/lib/hono";
 import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InferResponseType } from "hono";
+import { InferRequestType, InferResponseType } from "hono";
 
 
-type ResponseType = InferResponseType<typeof client.api.accounts[":id"]["$delete"]>
+type ResponseType = InferResponseType<typeof client.api.accounts["bulk-delete"]["$post"]>
+type RequestType = InferRequestType<typeof client.api.accounts["bulk-delete"]["$post"]>["json"];
 
-export const useDeleteAccount = (id?: string) => {
+export const useBulkDeleteAccounts = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation<
     ResponseType,
-    Error
+    Error,
+    RequestType
     >({
-      mutationFn: async() => {
-        const response = await client.api.accounts[":id"]["$delete"]({
-          param: { id }
-        });
+      mutationFn: async(json) => {
+        const response = await client.api.accounts["bulk-delete"].$post({json});
         return await response.json();
       },
       onSuccess: () => {
         toast.success("Account deleted")
         queryClient.invalidateQueries({ queryKey: ["accounts"] })
+        // Todo: also invalidate summary
       },
-      onError: (error) => {
-        console.error("Error deleting account:", error);
+      onError: () => {
         toast.error("Failed to delete account")
       }
     })
