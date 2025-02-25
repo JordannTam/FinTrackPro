@@ -9,13 +9,14 @@ import { DataTable } from "@/components/data-table"
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions"
 import { Skeleton } from "@/components/ui/skeleton"
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { UploadButton } from "./upload-button"
 import { toast } from "sonner"
 import { transactions as transactionsSchema } from "@/db/schema";
 import { useBulkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions"
 import { ImportCard } from "./import-card"
 import { useSelectAccount } from "@/features/accounts/hooks/use-select-account"
+import { useSearchParams } from "next/navigation"
 
 
 enum VARIANTS {
@@ -30,11 +31,15 @@ const INITIAL_IMPORT_RESULTS = {
 }
 
 
-const TransactionsPage = () => {
+const TransactionsPageContent = () => {
   const [AccountDialog, confirm] = useSelectAccount();
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST)
   const newTransaction = useNewTransaction()
-  const transactionsQuery = useGetTransactions()
+  const searchParams = useSearchParams();
+  const from = searchParams.get("from") || "";
+  const to = searchParams.get("to") || "";
+  const accountId = searchParams.get("accountId") || "";
+  const transactionsQuery = useGetTransactions(from, to, accountId);  
   const createTransactions = useBulkCreateTransactions();
   const transactions = transactionsQuery.data || []
   const deleteTransactions = useBulkDeleteTransactions()
@@ -133,5 +138,10 @@ const TransactionsPage = () => {
     </div>
   )
 }
+const TransactionsPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <TransactionsPageContent />
+  </Suspense>
+);
 
 export default TransactionsPage

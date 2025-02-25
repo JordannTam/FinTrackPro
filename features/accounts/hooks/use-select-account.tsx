@@ -64,7 +64,11 @@ export const useSelectAccount = (): [
           placeholder="Select an account"
           options={accountOptions}
           onCreate={onCreateAccount}
-          onChange={(value) => (selectValue.current = value)}
+          onChange={(value) => {
+            if (value !== undefined) {
+              selectValue.current = value;
+            }
+          }}
           disabled={accountQuery.isLoading || accountMutation.isPending}
         />
         <DialogFooter className="pt-2">

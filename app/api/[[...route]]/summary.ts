@@ -43,7 +43,9 @@ const app = new Hono().get(
 
     async function fetchFinancialData(
       userId: string, 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       from: Date, 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       to: Date
     ) {
       return await db
