@@ -9,10 +9,10 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 
 const routes = [
-  {
-    href: "/",
-    label: "Overview",
-  },
+  // {
+  //   href: "/",
+  //   label: "Overview",
+  // },
   {
     href: "/transactions",
     label: "Transactions"

@@ -26,7 +26,10 @@ export const useGetTransactions = () => {
       }
 
       const { data } = await res.json()
-      return data
+      return data.map((transaction) => ({
+        ...transaction,
+        amount: transaction.amount
+      }))
     }
   })
   return query

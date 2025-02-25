@@ -29,7 +29,7 @@ const app = new Hono()
       }
 
       const defaultTo = new Date()
-      const defaultFrom = subDays(defaultTo, 30)
+      const defaultFrom = subDays(defaultTo, 365)
 
       const startDate = from 
         ? parse(from, "yyyy-MM-dd", new Date()) 
@@ -145,7 +145,7 @@ const app = new Hono()
 
       if (!auth?.userId){
         return c.json({error: "Unauthorized"}, 401)
-      }
+      }      
 
       const data = await db
         .insert(transactions)

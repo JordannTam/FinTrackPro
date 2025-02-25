@@ -1,17 +1,17 @@
 "use client"
-
-import { Button } from "@/components/ui/button"
-import { useNewAccount } from "@/features/accounts/hooks/use-new-account"
-
+import { Loader2 } from "lucide-react"
+import { redirect } from "next/navigation"
+import { useEffect } from "react"
 
 export default function Home() {
-  const { onOpen } = useNewAccount()
+
+  useEffect(() => {
+    redirect("/transactions")
+  }, [])
+
   return (
-    <div>
-      <Button onClick={onOpen}>
-        Add an account
-      </Button>
-      Home Page
+    <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
+      <Loader2 className="animate-spin text-muted-foreground" />
     </div>
   )
 }
