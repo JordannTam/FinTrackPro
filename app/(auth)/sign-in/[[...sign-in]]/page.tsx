@@ -24,7 +24,10 @@ const SignInPage = () => {
         </div>
       </div>
       <div className="h-full bg-blue-600 hidden lg:flex items-center justify-center">
-        <Image src="/logo.svg" height={100} width={100} alt="Logo" />
+        <div className="flex flex-col justify-center items-center">
+          <Image src="/logo.svg" height={100} width={100} alt="Logo" />
+          <span className="text-white text-xl">FinTrackPro</span>
+        </div>
       </div>
     </div>
   );
