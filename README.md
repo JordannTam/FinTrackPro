@@ -18,7 +18,6 @@ FinTrackPro is a financial software-as-a-service (SaaS) application designed to 
 - Node.js (v14 or higher)
 - npm or yarn
 - Docker
-- Kubernetes
 - PostgreSQL database
 
 ### Installation
@@ -60,3 +59,42 @@ FinTrackPro is a financial software-as-a-service (SaaS) application designed to 
       # or
       yarn dev
       ```
+
+## Backend API
+
+### Transactions
+
+* `GET /api/transactions`: Retrieve transactions with optional date range and account filtering.
+* `GET /api/transactions/:id`: Retrieve a specific transaction by ID.
+* `POST /api/transactions`: Create a new transaction.
+* `POST /api/transactions/bulk-create`: Bulk create transactions.
+* `POST /api/transactions/bulk-delete`: Bulk delete transactions.
+* `PATCH /api/transactions/:id`: Update a specific transaction by ID.
+* `DELETE /api/transactions/:id`: Delete a specific transaction by ID.
+
+### Accounts
+
+* `GET /api/accounts`: Retrieve all accounts.
+* `GET /api/accounts/:id`: Retrieve a specific account by ID.
+* `POST /api/accounts`: Create a new account.
+* `PATCH /api/accounts/:id`: Update a specific account by ID.
+* `DELETE /api/accounts/:id`: Delete a specific account by ID.
+
+### Categories
+
+* `GET /api/categories`: Retrieve all categories.
+* `GET /api/categories/:id`: Retrieve a specific category by ID.
+* `POST /api/categories`: Create a new category.
+* `PATCH /api/categories/:id`: Update a specific category by ID.
+* `DELETE /api/categories/:id`: Delete a specific category by ID.
+
+
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+For any questions or inquiries, please contact jordantamsc@gmail.com.com.
