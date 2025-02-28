@@ -20,8 +20,7 @@ FinTrackPro is a financial software-as-a-service (SaaS) application designed to 
 
 ### relative response
 
-<img src="captures/transaction(iPhone 14 Pro Max).png" width="20%" alt="Description of the screenshot">
-<img src="captures/new-transaction(iPhone 14 Pro Max).png" width="20%" alt="Description of the screenshot">
+<img src="captures/transaction(iPhone 14 Pro Max).png" width="20%" alt="Description of the screenshot"> <img src="captures/new-transaction(iPhone 14 Pro Max).png" width="20%" alt="Description of the screenshot">
 
 ## Getting Started
 
