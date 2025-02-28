@@ -11,6 +11,18 @@ FinTrackPro is a financial software-as-a-service (SaaS) application designed to 
 - Integration with accounts and categories
 - Secure and validated API endpoints
 
+
+## Screenshots
+
+<img src="captures/accounts-page.jpeg" width="50%" alt="Description of the screenshot"> <img src="captures/categories-page.jpeg" width="50%" alt="Description of the screenshot">
+
+<img src="captures/transactions-page.jpeg" width="45%" alt="Description of the screenshot"> <img src="captures/csv-import.png" width="45%" alt="Description of the screenshot">
+
+### relative response
+
+<img src="captures/transaction(iPhone 14 Pro Max).png" width="20%" alt="Description of the screenshot">
+<img src="captures/new-transaction(iPhone 14 Pro Max).png" width="20%" alt="Description of the screenshot">
+
 ## Getting Started
 
 ### Prerequisites
