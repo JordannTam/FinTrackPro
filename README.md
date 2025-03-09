@@ -14,17 +14,20 @@ FinTrackPro is a financial software-as-a-service (SaaS) application designed to 
 
 ## Screenshots
 
+#### Home Page
+<img src="captures/home-page.jpeg" width="80%" alt="Description of the screenshot"> 
+
 #### Account Page
-<img src="captures/accounts-page.jpeg" width="50%" alt="Description of the screenshot"> 
+<img src="captures/accounts-page.jpeg" width="80%" alt="Description of the screenshot"> 
 
 #### Categories Page
-<img src="captures/categories-page.jpeg" width="50%" alt="Description of the screenshot">
+<img src="captures/categories-page.jpeg" width="80%" alt="Description of the screenshot">
 
 #### Transactions Page
-<img src="captures/transactions-page.jpeg" width="45%" alt="Description of the screenshot"> 
+<img src="captures/transactions-page.jpeg" width="80%" alt="Description of the screenshot"> 
 
 #### CSV Import
-<img src="captures/csv-import.png" width="45%" alt="Description of the screenshot">
+<img src="captures/csv-import.png" width="80%" alt="Description of the screenshot">
 
 ### relative response
 
