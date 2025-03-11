@@ -40,10 +40,13 @@ export const RadialVariant = ({ data }: Props) => {
           verticalAlign="bottom"
           align="right"
           iconType="circle"
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           content={({ payload }: any) => {
             return (
               <ul className="flex flex-col space-y-2">
-                {payload.map((entry: any, index: number) => (
+                {payload.map(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  (entry: any, index: number) => (
                   <li
                     key={`item-${index}`}
                     className="flex items-center space-x-2"

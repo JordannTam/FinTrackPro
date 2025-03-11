@@ -8,14 +8,18 @@ import { useGetSummary } from "@/features/summary/api/use-get-summary";
 import { DataCard, DataCardLoading } from "@/components/data-card";
 
 import { formatDateRange } from "@/lib/utils";
+import { Suspense } from "react";
 
-export const DataGrid = () => {
-  const { data, isLoading } = useGetSummary();
-
+const DataGridContent = () => {
+  
+  
   const params = useSearchParams();
   const from = params.get("from") || undefined;
   const to = params.get("to") || undefined;
-
+  const accountId = params.get("accountId") || "";
+  const fromS = params.get("from") || "";
+  const toS = params.get("to") || "";
+  const { data, isLoading } = useGetSummary(fromS, toS, accountId);
   const dateRangeLabel = formatDateRange({ to, from });
 
   if (isLoading) {
@@ -57,3 +61,10 @@ export const DataGrid = () => {
     </div>
   );
 };
+
+
+export const DataGrid = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <DataGridContent />
+  </Suspense>
+);

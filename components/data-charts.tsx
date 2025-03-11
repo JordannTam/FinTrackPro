@@ -4,9 +4,16 @@ import { Chart, ChartLoading } from "@/components/chart";
 
 import { useGetSummary } from "@/features/summary/api/use-get-summary";
 import { SpendingPie, SpendingPieLoading } from "./spending-pie";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export const DataCharts = () => {
-  const { data, isLoading } = useGetSummary();
+const DataChartsContent = () => {
+    const params = useSearchParams();
+    const from = params.get("from") || "";
+    const to = params.get("to") || "";
+    const accountId = params.get("accountId") || "";
+  
+  const { data, isLoading } = useGetSummary(from, to, accountId);
 
   if (isLoading) {
     return (
@@ -32,3 +39,10 @@ export const DataCharts = () => {
     </div>
   );
 };
+
+
+export const DataCharts = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <DataChartsContent />
+  </Suspense>
+)
